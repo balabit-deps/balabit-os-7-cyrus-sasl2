@@ -31,3 +31,4 @@
 0031-Cleanup-for-modern-autotools.patch
 0032-Add-with_pgsql-include-postgresql-to-include-path.patch
 0033-Missing-definition-of-OPENSSL_zalloc.patch
+CVE-2019-19906.patch

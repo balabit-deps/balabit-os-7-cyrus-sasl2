@@ -1,3 +1,12 @@
+cyrus-sasl2 (2.1.27~101-g0780600+dfsg-3ubuntu2.1) bionic-security; urgency=medium
+
+  * SECURITY UPDATE: Off-by-one
+    - debian/patches/CVE-2019-19906.patch: fix in _sasl_add_string function
+    - CVE-2019-19906
+  * Thanks Debian for the patch provide that (Closes: #947043)
+
+ -- Leonidas S. Barbosa <leo.barbosa@canonical.com>  Mon, 27 Jan 2020 16:25:33 -0300
+
 cyrus-sasl2 (2.1.27~101-g0780600+dfsg-3ubuntu2) bionic; urgency=high
 
   * No change rebuild against openssl1.1.
