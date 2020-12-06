@@ -32,3 +32,5 @@
 0032-Add-with_pgsql-include-postgresql-to-include-path.patch
 0033-Missing-definition-of-OPENSSL_zalloc.patch
 CVE-2019-19906.patch
+lp-1906627-01-Fix-GSS-SPNEGO-mechanism-s-incompatible-behavior.patch
+lp-1906627-02-Drop-unused-parameter-from-gssapi_spnego_ssf.patch

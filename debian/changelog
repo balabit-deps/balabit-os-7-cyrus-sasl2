@@ -1,3 +1,13 @@
+cyrus-sasl2 (2.1.27~101-g0780600+dfsg-3ubuntu2.3) bionic; urgency=medium
+
+  * d/p/lp-1906627-01-Fix-GSS-SPNEGO-mechanism-s-incompatible-behavior.patch:
+    d/p/lp-1906627-02-Drop-unused-parameter-from-gssapi_spnego_ssf.patch:
+    - Fix GSS-SPNEGO implementation to be inter-operable with Microsoft
+      Active Directory, fixing the source of the recent adcli regression.
+      (LP: #1906627)
+
+ -- Matthew Ruffell <matthew.ruffell@canonical.com>  Mon, 07 Dec 2020 10:54:47 +1300
+
 cyrus-sasl2 (2.1.27~101-g0780600+dfsg-3ubuntu2.1) bionic-security; urgency=medium
 
   * SECURITY UPDATE: Off-by-one

@@ -1,0 +1,38 @@
+Description: Drop unused parameter from gssapi_spnego_ssf()
+Author: Simo Sorce <simo@redhat.com>
+From: Matthew Ruffell <matthew.ruffell@canonical.com>
+Origin: https://github.com/cyrusimap/cyrus-sasl/commit/ed2ad48f242fe16e846a9db552a04fca1a5da45f
+Bug-Ubuntu: https://launchpad.net/bugs/1906627
+
+Index: cyrus-sasl2-2.1.27~101-g0780600+dfsg/plugins/gssapi.c
+===================================================================
+--- cyrus-sasl2-2.1.27~101-g0780600+dfsg.orig/plugins/gssapi.c	2020-12-07 11:00:18.410046568 +1300
++++ cyrus-sasl2-2.1.27~101-g0780600+dfsg/plugins/gssapi.c	2020-12-07 11:00:18.410046568 +1300
+@@ -652,7 +652,7 @@
+  * flags negotiated by GSSAPI to determine If confidentiality or integrity are
+  * used. These flags are stored in text->qop transalated as layers by the
+  * caller */
+-static int gssapi_spnego_ssf(context_t *text, const sasl_utils_t *utils,
++static int gssapi_spnego_ssf(context_t *text,
+                              sasl_security_properties_t *props,
+                              sasl_out_params_t *oparams)
+ {
+@@ -1019,7 +1019,7 @@
+ 	text->state = SASL_GSSAPI_STATE_AUTHENTICATED;
+ 	ret = SASL_OK;
+     } else if (text->mech_type && text->mech_type == &gss_spnego_oid) {
+-        ret = gssapi_spnego_ssf(text, params->utils, &params->props, oparams);
++        ret = gssapi_spnego_ssf(text, &params->props, oparams);
+     } else {
+ 	/* Switch to ssf negotiation */
+ 	text->state = SASL_GSSAPI_STATE_SSFCAP;
+@@ -1836,8 +1836,7 @@
+ 		return SASL_OK;
+ 	    } else if (text->mech_type && text->mech_type == &gss_spnego_oid) {
+ 		oparams->doneflag = 1;
+-                return gssapi_spnego_ssf(text, params->utils, &params->props,
+-                                         oparams);
++                return gssapi_spnego_ssf(text, &params->props, oparams);
+             }
+ 
+ 	    /* Switch to ssf negotiation */
